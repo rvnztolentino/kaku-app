@@ -2,7 +2,7 @@
 import Link from 'next/link';
 
 const Header = () => (
-  <header className="text-gray fixed top-0 left-0 right-0 z-50 p-5 border-b border-slate-300">
+  <header className="sticky text-gray bg-white top-0 left-0 right-0 z-50 p-5 border-b border-slate-300 mt-[-80px]">
     <div className="flex justify-between items-center">
       <div className="flex items-center space-x-2">
       <Link href="/"><button className="text-lg font-playfair-display text-dark-gray p-1 hover:bg-light-gray-2 hover:rounded-md transition-all duration-300 ease-in-out">《 kaku 》</button></Link>
