@@ -24,6 +24,12 @@ module.exports = {
         'dark-gray': "#374151",
         'light-gray': "#9ca3af",
         'light-gray-2': "#e5e5e5",
+        'blue': "#2563eb",
+      },
+      spacing: {
+        '128': '32rem',
+        '144': '36rem', 
+        '160': '40rem',
       },
     },
     fontFamily: {
