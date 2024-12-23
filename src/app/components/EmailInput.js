@@ -6,12 +6,8 @@ import { useState } from 'react';
 const EmailInput = () => {
   const [email, setEmail] = useState('');
 
-  const handleInputChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log("EMAIL IS: " + email);
     alert("This feature is currently unavailable. Please check back later.");
   }
@@ -22,12 +18,12 @@ const EmailInput = () => {
       <input
         type="email"
         id="email"
-        className="border rounded p-2 text-black w-128 sm:w-128 xs:w-80" 
+        className="border rounded text-black p-2 w-128 sm:w-128 xs:w-80" 
         placeholder="enter your email"
         value={email}
-        onChange={handleInputChange}
+        onChange={(e) => setEmail(e.target.value)}
       />
-      <button type="submit" className="mt-4 text-black bg-light-gray-2 rounded p-2 hover:bg-light-gray transition-all duration-300 ease-in-out" > Submit </button>
+      <button type="submit" className="bg-black rounded hover:bg-gray transition-all duration-300 ease-in-out text-white mt-4 p-2" > submit </button>
     </form>
   );
 };

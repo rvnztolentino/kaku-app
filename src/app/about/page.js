@@ -2,7 +2,7 @@
 const About = () => {
     return (
     <>
-    <div className="font-noto-sans flex flex-col justify-center items-center min-h-screen mt-[-80px] xs:mt-[40px] sm:mt-[0px] xl:mt-[0px]">
+    <div className="flex flex-col justify-center items-center min-h-screen font-noto-sans mt-[-80px] xs:mt-[40px] sm:mt-[0px] xl:mt-[0px]">
         <h1 className="text-4xl text-dark-gray font-playfair-display">About《 kaku 》</h1>
         <p className="text-md text-dark-gray mt-10 mx-144 xs:mx-20 xl:mx-96 2xl:mx-128 5xl:mx-144">
             《 kaku 》 is a tool for getting things done and taking notes. It helps you keep your ideas organized and manage your tasks with ease. The app is simple to use, fitting right into your daily routine.
