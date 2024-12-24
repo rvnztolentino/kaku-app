@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const About = () => {
     return (
@@ -13,8 +14,9 @@ const About = () => {
         </p>
         <div className="text-dark-gray text-center text-sm mt-6 mb-20 space-y-4">
             <p className="inline">made by
-                <button className="text-blue px-1">@rvnztolentino</button>
-                and<button className="text-blue px-1">@bntlyr</button>
+                <Link href="https://github.com/rvnztolentino"><button className="text-blue px-1">@rvnztolentino</button></Link>
+                and
+                <Link href="https://github.com/bntlyr"><button className="text-blue px-1">@bntlyr</button></Link>
             </p>
             <Image src="/neko.gif" width={500} height={500} alt="gif" />
         </div>
