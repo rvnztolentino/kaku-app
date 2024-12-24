@@ -6,7 +6,7 @@ const Header = () => (
     <div className="flex justify-between items-center">
       <div className="flex items-center space-x-2">
         <Link href="/"><button className="hover:bg-light-gray-2 hover:rounded-md transition-all duration-300 ease-in-out text-md font-playfair-display text-dark-gray p-1">《 kaku 》</button></Link>
-        <p className="bg-red-200 rounded-md text-left text-[10px] text-dark-gray px-2 py-0.5">coming soon!</p>
+        <p className="bg-red-200 rounded-md font-bold text-left text-[10px] text-dark-gray px-2 py-0.5">now in beta!</p>
       </div>
       <nav>
         <ul className="flex space-x-4">

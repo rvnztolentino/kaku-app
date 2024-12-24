@@ -198,7 +198,7 @@ export default function ProjectBoard() {
           <Button
             onClick={addColumn}
             size="sm"
-            className="gap-2 bg-black hover:bg-gray-800 text-white"
+            className="gap-2 bg-black hover:bg-gray transition-all duration-300 ease-in-out text-white"
           >
             <Plus className="w-4 h-4" /> Add Column
           </Button>
