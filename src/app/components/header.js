@@ -12,7 +12,7 @@ const Header = () => (
         <ul className="flex space-x-4">
           <Link href="/about"><button className="text-sm hover:text-red-200">about</button></Link>
           <p>•</p>
-          <Link href="/blog"><button className="text-sm hover:text-red-200">blog</button></Link>
+          <Link href="/beta"><button className="text-sm hover:text-red-200">beta</button></Link>
         </ul>
       </nav>
   </div>
