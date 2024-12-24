@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
-
   return (
     <>
       <div className="flex flex-col justify-center items-center min-h-screen font-noto-sans py-10 xs:mt-[-40px] lg:mt-[-40px]">

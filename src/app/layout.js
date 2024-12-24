@@ -14,14 +14,15 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata = {
-  title: "kaku",
-  description: "where productivity meets simplicity!",
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Kaku" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
         {children}
@@ -30,3 +31,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
