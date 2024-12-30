@@ -24,7 +24,7 @@ export default function AddColumnDialog({ open, onOpenChange, onSubmit }) {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className="text-xl font-playfair-display">Add New Column</DialogTitle>
+          <DialogTitle className="text-xl text-black font-playfair-display">Add New Column</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">

@@ -37,7 +37,7 @@ export default function AddTaskDialog({ open, onOpenChange, onSubmit }) {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className="text-xl font-playfair-display">Add New Task</DialogTitle>
+          <DialogTitle className="text-xl text-black font-playfair-display">Add New Task</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">

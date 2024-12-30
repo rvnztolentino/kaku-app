@@ -4,7 +4,7 @@ import { useState, useCallback, useEffect } from 'react'
 import { DndContext, closestCenter, PointerSensor, useSensor, useSensors } from '@dnd-kit/core'
 import { arrayMove, SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable'
 import { Button } from "@/components/ui/button"
-import { PencilLine, Share2, Plus } from 'lucide-react'
+import { PencilLine, ListTodo, Share2, Plus, House } from 'lucide-react'
 import Column from './Column'
 import Task from './Task';
 import AddTaskDialog from './AddTaskDialog'
@@ -271,19 +271,10 @@ export default function ProjectBoard() {
     <div className="w-full max-w-[1400px] mx-auto">
       <div className="flex justify-between items-center mb-6 px-4">
         <div className="flex items-center gap-2">
+          <ListTodo className="w-6 h-6 text-gray-600" />
           <h1 className="text-xl font-playfair-display text-dark-gray">My Tasks</h1>
-          <button className="p-1 hover:bg-gray-100 rounded transition-colors">
-            <PencilLine className="w-4 h-4 text-gray-600" />
-          </button>
         </div>
         <div className="flex items-center gap-2">
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="gap-2 text-dark-gray hover:text-gray-700"
-          >
-            <Share2 className="w-4 h-4" /> Share
-          </Button>
           <Button
             onClick={() => setIsAddingColumn(true)}
             size="sm"
