@@ -90,7 +90,7 @@ export default function AddTaskDialog({ open, onOpenChange, onSubmit }) {
               <Plus className="w-4 h-4 mr-2" /> Add Subtask
             </Button>
           </div>
-          <Button type="submit" className="w-full bg-black hover:bg-gray-800">
+          <Button type="submit" className="w-full bg-black hover:bg-dark-gray transition-all duration-300 ease-in-out">
             Create Task
           </Button>
         </form>

@@ -43,6 +43,10 @@ export default function Task({ task, columnId, onToggleSubtask, onAddSubtask, on
     }
   }
 
+  const handleDeleteTask = () => {
+    alert('This feature is not implemented yet. Try again later.')
+  }
+
   return (
     <div
       ref={setNodeRef}
@@ -81,7 +85,7 @@ export default function Task({ task, columnId, onToggleSubtask, onAddSubtask, on
               <DropdownMenuItem onClick={() => setIsExpanded(true)}>
                 <Plus className="w-4 h-4 mr-2" /> Add Subtask
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => onDeleteSubtask(task.id)} className="text-red-600">
+              <DropdownMenuItem onClick= {handleDeleteTask} className="text-red-600">
                 <Trash2 className="w-4 h-4 mr-2" /> Delete Task
               </DropdownMenuItem>
             </DropdownMenuContent>

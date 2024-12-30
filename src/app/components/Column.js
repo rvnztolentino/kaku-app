@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import Task from './Task'
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
 
-export default function Column({ column, onAddTask, onDeleteColumn, onToggleSubtask, onAddSubtask, onDeleteSubtask }) {
+export default function Column({ column, onAddTask, onDeleteColumn, onToggleSubtask, onAddSubtask, onDeleteSubtask, onDeleteTask }) {
   const {
     attributes,
     listeners,
@@ -73,6 +73,7 @@ export default function Column({ column, onAddTask, onDeleteColumn, onToggleSubt
               onToggleSubtask={(subtaskId) => onToggleSubtask(task.id, subtaskId)}
               onAddSubtask={(subtaskTitle) => onAddSubtask(task.id, subtaskTitle)}
               onDeleteSubtask={(subtaskId) => onDeleteSubtask(task.id, subtaskId)}
+              onDeleteTask={onDeleteTask}
             />
           ))}
         </div>
