@@ -11,13 +11,31 @@ import AddTaskDialog from './AddTaskDialog'
 import AddColumnDialog from './AddColumnDialog'
 
 export default function ProjectBoard() {
-  const [columns, setColumns] = 
-
-  useState(() => {
-    const savedColumns = localStorage.getItem('columns');
-    return savedColumns ? JSON.parse(savedColumns) : [
+  const [columns, setColumns] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const savedColumns = localStorage.getItem('columns');
+      return savedColumns ? JSON.parse(savedColumns) : [
+        { 
+          id: 'todo', 
+          title: 'To Do', 
+          tasks: [
+            { 
+              id: 'task1', 
+              title: 'Task 1', 
+              subtasks: [
+                { id: 'subtask1', title: 'Subtask 1', completed: false },
+                { id: 'subtask2', title: 'Subtask 2', completed: false }
+              ]
+            }
+          ]
+        },
+        { id: 'inProgress', title: 'In Progress', tasks: [] },
+        { id: 'done', title: 'Done', tasks: [] }
+      ];
+    }
+    return [
       { 
-        id: `column-01`, 
+        id: 'todo', 
         title: 'To Do', 
         tasks: [
           { 
@@ -30,13 +48,15 @@ export default function ProjectBoard() {
           }
         ]
       },
-      { id: `column-02`, title: 'In Progress', tasks: [] },
-      { id: `column-03`, title: 'Done', tasks: [] }
+      { id: 'inProgress', title: 'In Progress', tasks: [] },
+      { id: 'done', title: 'Done', tasks: [] }
     ];
   });
 
   useEffect(() => {
-    localStorage.setItem('columns', JSON.stringify(columns));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('columns', JSON.stringify(columns));
+    }
   }, [columns]);
 
   const [isAddingTask, setIsAddingTask] = useState(false)
