@@ -16,11 +16,11 @@ export default function ProjectBoard() {
       const savedColumns = localStorage.getItem('columns');
       return savedColumns ? JSON.parse(savedColumns) : [
         { 
-          id: 'todo', 
+          id: `column-01`, 
           title: 'To Do', 
           tasks: [
             { 
-              id: 'task1', 
+              id: `task-01`, 
               title: 'Task 1', 
               subtasks: [
                 { id: 'subtask1', title: 'Subtask 1', completed: false },
@@ -29,17 +29,17 @@ export default function ProjectBoard() {
             }
           ]
         },
-        { id: 'inProgress', title: 'In Progress', tasks: [] },
-        { id: 'done', title: 'Done', tasks: [] }
+        { id: `column-02`, title: 'In Progress', tasks: [] },
+        { id: `column-03`, title: 'Done', tasks: [] }
       ];
     }
     return [
       { 
-        id: 'todo', 
+        id: `column-01`, 
         title: 'To Do', 
         tasks: [
           { 
-            id: 'task1', 
+            id: `task-01`, 
             title: 'Task 1', 
             subtasks: [
               { id: 'subtask1', title: 'Subtask 1', completed: false },
@@ -48,8 +48,8 @@ export default function ProjectBoard() {
           }
         ]
       },
-      { id: 'inProgress', title: 'In Progress', tasks: [] },
-      { id: 'done', title: 'Done', tasks: [] }
+      { id: `column-02`, title: 'In Progress', tasks: [] },
+      { id: `column-03`, title: 'Done', tasks: [] }
     ];
   });
 
