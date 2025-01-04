@@ -8,9 +8,8 @@ const Footer = () => {
       <div className="flex justify-between items-center">
         <p>© 2024 Kaku. All rights reserved.</p>
         <nav className="flex space-x-4">
-          <Link href="/contact"><button className="hover:text-gray-400">Contact</button></Link>
-          <p>•</p>
-          <Link href="/jobs"><button className="hover:text-gray-400">Jobs</button></Link>
+          <Link href="/contact"><button className="hover:underline">Contact</button></Link>
+          <Link href="/jobs"><button className="hover:underline">Jobs</button></Link>
         </nav>
       </div>
     </footer>

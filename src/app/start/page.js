@@ -2,14 +2,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ListTodo, PencilLine } from 'lucide-react';
 
-export default function Home() {
+export default function Start() {
 
   return (
     <>
       <div className="fade-in-1 flex flex-col justify-center items-center min-h-screen font-noto-sans py-10 xs:mt-[-60px] lg:mt-[-70px]">
         <h1 className="fade-in-1 text-xl text-dark-gray font-playfair-display">《 kaku 》</h1>
         <p className="fade-in-1 text-5xl text-dark-gray font-playfair-display text-center mt-2 xs:mx-0 lg:mx-96 2xl:mx-96">Get started.</p>
-        <p className="fade-in-1 text-md text-dark-gray text-center mt-4 mb-4">please select from the options below!</p>
+        <p className="fade-in-1 text-md text-dark-gray text-center mt-4 mb-4">please select from the options below</p>
         <div className="fade-in-2 flex space-x-4 mb-6 xs:text-center xs:block lg:inline-block">
             <Link href="/tasks">
                 <button className="
