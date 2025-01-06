@@ -1,12 +1,14 @@
-import Image from 'next/image'
+'use client'
 
-export default function Jobs() {
+import ProjectNote from '../components/ProjectNote'
+
+export default function Tasks() {
   return (
-    <>
-      <div className="fade-in-1 flex flex-col justify-center items-center min-h-screen font-noto-sans py-10 mt-[-80px]">
-        <p className="text-md text-dark-gray mt-2 mb-5">Nothing yet! Check back later :)</p>
-        <Image src="/neko.gif" width={500} height={500} alt="gif" />
-      </div>
-    </>
-  );
+    <div className="fade-in-1 min-h-screen flex flex-col mt-4">
+      <main className="flex-grow p-4">
+        <ProjectNote />
+      </main>
+    </div>
+  )
 }
+

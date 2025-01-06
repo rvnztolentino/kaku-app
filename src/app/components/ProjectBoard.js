@@ -82,32 +82,53 @@ export default function ProjectBoard() {
       const activeColumnIndex = columns.findIndex(col => col.id === active.id);
       const overColumnIndex = columns.findIndex(col => col.id === over.id);
       setColumns(arrayMove(columns, activeColumnIndex, overColumnIndex));
-    } else if (activeIndex[0] === 'task') {
+    } 
+    
+    else if (activeIndex[0] === 'task') {
       const activeColumn = columns.find(col => col.tasks.some(task => task.id === active.id));
-      const overColumn = columns.find(col => col.tasks.some(task => task.id === over.id));
+      const overColumn = columns.find(col => col.id === over.id);
   
       if (activeColumn && overColumn) {
         const activeTaskIndex = activeColumn.tasks.findIndex(task => task.id === active.id);
-        const overTaskIndex = overColumn.tasks.findIndex(task => task.id === over.id);
+        const overTaskIndex = overColumn.tasks.length === 0 ? 0 : overColumn.tasks.findIndex(task => task.id === over.id);
   
-        if (activeColumn.id === overColumn.id) {
-          const updatedTasks = arrayMove(activeColumn.tasks, activeTaskIndex, overTaskIndex);
-          setColumns(prev => prev.map(col => col.id === activeColumn.id ? { ...col, tasks: updatedTasks } : col));
-        } else {
+        if (overColumn.tasks.length === 0) {
           const activeTask = activeColumn.tasks[activeTaskIndex];
           const updatedActiveTasks = [...activeColumn.tasks];
-          const updatedOverTasks = [...overColumn.tasks];
           updatedActiveTasks.splice(activeTaskIndex, 1);
-          updatedOverTasks.splice(overTaskIndex, 0, activeTask);
+          
+          const updatedOverTasks = [activeTask, ...overColumn.tasks];
   
           setColumns(prev => prev.map(col => {
             if (col.id === activeColumn.id) return { ...col, tasks: updatedActiveTasks };
             if (col.id === overColumn.id) return { ...col, tasks: updatedOverTasks };
             return col;
           }));
+        } 
+        
+        // If over column has tasks, move the task to the correct position
+        else {
+          if (activeColumn.id === overColumn.id) {
+            const updatedTasks = arrayMove(activeColumn.tasks, activeTaskIndex, overTaskIndex);
+            setColumns(prev => prev.map(col => col.id === activeColumn.id ? { ...col, tasks: updatedTasks } : col));
+          } else {
+            const activeTask = activeColumn.tasks[activeTaskIndex];
+            const updatedActiveTasks = [...activeColumn.tasks];
+            const updatedOverTasks = [...overColumn.tasks];
+            updatedActiveTasks.splice(activeTaskIndex, 1);
+            updatedOverTasks.splice(overTaskIndex, 0, activeTask);
+  
+            setColumns(prev => prev.map(col => {
+              if (col.id === activeColumn.id) return { ...col, tasks: updatedActiveTasks };
+              if (col.id === overColumn.id) return { ...col, tasks: updatedOverTasks };
+              return col;
+            }));
+          }
         }
       }
-    } else if (activeIndex[0] === 'subtask') {
+    } 
+    // Case when dragging a subtask
+    else if (activeIndex[0] === 'subtask') {
       const activeColumn = columns.find(col => col.tasks.some(task => task.subtasks.some(sub => sub.id === active.id)));
       const overColumn = columns.find(col => col.tasks.some(task => task.subtasks.some(sub => sub.id === over.id)));
   
@@ -148,7 +169,8 @@ export default function ProjectBoard() {
         }
       }
     }
-  }, [columns]);  
+  }, [columns]);
+  
 
   const addColumn = useCallback(({ title }) => {
     setColumns(prev => [
@@ -256,22 +278,25 @@ export default function ProjectBoard() {
   }, [])
 
   const deleteTask = useCallback((columnId, taskId) => {
-    setColumns(prev => prev.map(col => {
-      if (col.id === columnId) {
-        return {
-          ...col,
-          tasks: col.tasks.filter(task => task.id !== taskId)
+    setColumns(prev =>
+      prev.map(col => {
+        if (col.id === columnId) {
+          return {
+            ...col,
+            tasks: col.tasks.filter(task => task.id !== taskId),
+          };
         }
-      }
-      return col
-    }))
-  }, [])  
+        return col;
+      })
+    );
+  }, []);
+  
 
   return (
     <div className="w-full max-w-[1400px] mx-auto">
       <div className="flex justify-between items-center mb-6 px-4">
         <div className="flex items-center gap-2">
-          <ListTodo className="w-6 h-6 text-gray-600" />
+          <ListTodo className="w-6 h-6 text-dark-gray" />
           <h1 className="text-xl font-playfair-display text-dark-gray">My Tasks</h1>
         </div>
         <div className="flex items-center gap-2">
@@ -297,25 +322,25 @@ export default function ProjectBoard() {
           >
             {columns.map(column => (
               <Column
-                key={column.id}
-                column={column}
-                onAddTask={() => {
-                  setActiveColumn(column.id)
-                  setIsAddingTask(true)
-                }}
-                onDeleteColumn={() => deleteColumn(column.id)}
-                onToggleSubtask={(taskId, subtaskId) => 
-                  toggleSubtask(column.id, taskId, subtaskId)
-                }
-                onAddSubtask={(taskId, subtaskTitle) =>
-                  addSubtask(column.id, taskId, subtaskTitle)
-                }
-                onDeleteSubtask={(taskId, subtaskId) =>
-                  deleteSubtask(column.id, taskId, subtaskId)
-                }
-                onDeleteTask={(taskId) =>
-                  deleteTask(column.id, taskId)}
-              />
+              key={column.id}
+              column={column}
+              onAddTask={() => {
+                setActiveColumn(column.id);
+                setIsAddingTask(true);
+              }}
+              onDeleteColumn={() => deleteColumn(column.id)}
+              onToggleSubtask={(taskId, subtaskId) =>
+                toggleSubtask(column.id, taskId, subtaskId)
+              }
+              onAddSubtask={(taskId, subtaskTitle) =>
+                addSubtask(column.id, taskId, subtaskTitle)
+              }
+              onDeleteSubtask={(taskId, subtaskId) =>
+                deleteSubtask(column.id, taskId, subtaskId)
+              }
+              onDeleteTask={(taskId) => deleteTask(column.id, taskId)} // Pass onDeleteTask
+            />
+            
             ))}
           </SortableContext>
         </div>

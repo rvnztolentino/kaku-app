@@ -44,8 +44,10 @@ export default function Task({ task, columnId, onToggleSubtask, onAddSubtask, on
   }
 
   const handleDeleteTask = () => {
-    alert('This feature is not implemented yet. Try again later.')
+    // Call the onDeleteTask function passed from the parent
+    onDeleteTask(columnId, task.id);
   }
+  
 
   return (
     <div
