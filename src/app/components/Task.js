@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 
-export default function Task({ task, columnId, onToggleSubtask, onAddSubtask, onDeleteSubtask }) {
+export default function Task({ task, columnId, onToggleSubtask, onAddSubtask, onDeleteSubtask, onDeleteTask }) {
   const [isExpanded, setIsExpanded] = useState(false)
   const [newSubtaskTitle, setNewSubtaskTitle] = useState('')
   const completedSubtasks = task.subtasks.filter(st => st.completed).length
@@ -44,10 +44,12 @@ export default function Task({ task, columnId, onToggleSubtask, onAddSubtask, on
   }
 
   const handleDeleteTask = () => {
-    // Call the onDeleteTask function passed from the parent
-    onDeleteTask(columnId, task.id);
-  }
+    onDeleteTask(task.id);
+  };
   
+  const handleDeleteSubtask = (subtaskId) => {
+    onDeleteSubtask(subtaskId);
+  }
 
   return (
     <div
@@ -87,7 +89,7 @@ export default function Task({ task, columnId, onToggleSubtask, onAddSubtask, on
               <DropdownMenuItem onClick={() => setIsExpanded(true)}>
                 <Plus className="w-4 h-4 mr-2" /> Add Subtask
               </DropdownMenuItem>
-              <DropdownMenuItem onClick= {handleDeleteTask} className="text-red-600">
+              <DropdownMenuItem onClick={handleDeleteTask} className="text-red-600">
                 <Trash2 className="w-4 h-4 mr-2" /> Delete Task
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -115,7 +117,7 @@ export default function Task({ task, columnId, onToggleSubtask, onAddSubtask, on
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => onDeleteSubtask(subtask.id)}
+                onClick={() => handleDeleteSubtask(subtask.id)}
                 className="h-6 w-6 text-gray-400 hover:text-red-600"
               >
                 <Trash2 className="w-3 h-3" />

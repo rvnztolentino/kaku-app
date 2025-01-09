@@ -73,7 +73,7 @@ export default function Column({ column, onAddTask, onDeleteColumn, onToggleSubt
               onToggleSubtask={(subtaskId) => onToggleSubtask(task.id, subtaskId)}
               onAddSubtask={(subtaskTitle) => onAddSubtask(task.id, subtaskTitle)}
               onDeleteSubtask={(subtaskId) => onDeleteSubtask(task.id, subtaskId)}
-              onDeleteTask={onDeleteTask}
+              onDeleteTask={() => onDeleteTask(task.id)}
             />
           ))}
         </div>

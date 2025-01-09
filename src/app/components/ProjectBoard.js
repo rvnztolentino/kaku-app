@@ -4,7 +4,7 @@ import { useState, useCallback, useEffect } from 'react'
 import { DndContext, closestCenter, PointerSensor, useSensor, useSensors } from '@dnd-kit/core'
 import { arrayMove, SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable'
 import { Button } from "@/components/ui/button"
-import { PencilLine, ListTodo, Share2, Plus, House } from 'lucide-react'
+import { PencilLine, ListTodo, Share2, Plus, HomeIcon as House } from 'lucide-react'
 import Column from './Column'
 import Task from './Task';
 import AddTaskDialog from './AddTaskDialog'
@@ -274,21 +274,19 @@ export default function ProjectBoard() {
         }
       }
       return col
-    }))
-  }, [])
+  }))
+}, [])
 
   const deleteTask = useCallback((columnId, taskId) => {
-    setColumns(prev =>
-      prev.map(col => {
-        if (col.id === columnId) {
-          return {
-            ...col,
-            tasks: col.tasks.filter(task => task.id !== taskId),
-          };
-        }
-        return col;
-      })
-    );
+    setColumns(prev => prev.map(col => {
+      if (col.id === columnId) {
+        return {
+          ...col,
+          tasks: col.tasks.filter(task => task.id !== taskId)
+        };
+      }
+      return col;
+    }));
   }, []);
   
 
@@ -338,9 +336,8 @@ export default function ProjectBoard() {
               onDeleteSubtask={(taskId, subtaskId) =>
                 deleteSubtask(column.id, taskId, subtaskId)
               }
-              onDeleteTask={(taskId) => deleteTask(column.id, taskId)} // Pass onDeleteTask
+              onDeleteTask={(taskId) => deleteTask(column.id, taskId)} 
             />
-            
             ))}
           </SortableContext>
         </div>
