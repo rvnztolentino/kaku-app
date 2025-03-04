@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from 'react';
 import EditNoteDialog from './EditNoteDialog';
 
-export default function Note({ note, onDeleteNote, onUpdateNote }) {
+export default function Note({ note, onDelete, onEdit }) {
   const {
     attributes,
     listeners,
@@ -38,7 +38,7 @@ export default function Note({ note, onDeleteNote, onUpdateNote }) {
           border border-gray-200 shadow-sm cursor-pointer
           ${isDragging ? 'opacity-50' : ''}
         `}
-        onClick={() => setIsEditing(true)}
+        onClick={() => onEdit()}
       >
         <div className="flex justify-between items-start mb-2">
           <h2 className="font-medium text-dark-gray">{note.title}</h2>
@@ -47,7 +47,7 @@ export default function Note({ note, onDeleteNote, onUpdateNote }) {
             size="icon"
             onClick={(e) => {
               e.stopPropagation(); 
-              onDeleteNote(note.id);
+              onDelete();
             }}
             className="h-8 w-8 text-gray-600 hover:text-red-600"
           >
@@ -56,13 +56,6 @@ export default function Note({ note, onDeleteNote, onUpdateNote }) {
         </div>
         <p className="text-sm text-gray-700">{note.content}</p>
       </div>
-
-      <EditNoteDialog
-        open={isEditing}
-        onOpenChange={setIsEditing}
-        note={note}
-        onSubmit={onUpdateNote}
-      />
     </>
   );
 }

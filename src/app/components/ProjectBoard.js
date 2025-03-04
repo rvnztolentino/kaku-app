@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useCallback, useEffect } from 'react'
+import Link from 'next/link'
 import { DndContext, closestCenter, PointerSensor, useSensor, useSensors } from '@dnd-kit/core'
 import { arrayMove, SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable'
 import { Button } from "@/components/ui/button"
@@ -23,8 +24,8 @@ export default function ProjectBoard() {
               id: `task-01`, 
               title: 'Task 1', 
               subtasks: [
-                { id: 'subtask1', title: 'Subtask 1', completed: false },
-                { id: 'subtask2', title: 'Subtask 2', completed: false }
+                { id: `subtask1`, title: 'Subtask 1', completed: false },
+                { id: `subtask2`, title: 'Subtask 2', completed: false }
               ]
             }
           ]
@@ -42,8 +43,8 @@ export default function ProjectBoard() {
             id: `task-01`, 
             title: 'Task 1', 
             subtasks: [
-              { id: 'subtask1', title: 'Subtask 1', completed: false },
-              { id: 'subtask2', title: 'Subtask 2', completed: false }
+              { id: `subtask1`, title: 'Subtask 1', completed: false },
+              { id: `subtask2`, title: 'Subtask 2', completed: false }
             ]
           }
         ]
@@ -298,6 +299,15 @@ export default function ProjectBoard() {
           <h1 className="text-xl font-playfair-display text-dark-gray">My Tasks</h1>
         </div>
         <div className="flex items-center gap-2">
+          <Link href="/notes">
+            <Button
+              size="sm"
+              className="gap-2 bg-white border hover:bg-light-gray-3 transition-all duration-300 ease-in-out text-black"
+            >
+              <PencilLine className="w-4 h-4" /> 
+              <p className="hidden lg:block">Notes</p>
+            </Button>
+          </Link>
           <Button
             onClick={() => setIsAddingColumn(true)}
             size="sm"

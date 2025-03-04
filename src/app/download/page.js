@@ -11,9 +11,9 @@ export default function Download() {
         <h1 className="fade-in-1 text-xl text-dark-gray font-playfair-display">《 kaku 》</h1>
         <p className="fade-in-1 text-5xl text-dark-gray font-playfair-display text-center mt-2 xs:mx-4 lg:mx-96 2xl:mx-96">Download the app.</p>
         <p className="fade-in-1 text-md text-dark-gray text-center mt-4 mb-4">please select from the options below</p>
-        <div className="fade-in-2 flex lg:space-x-4 mb-6 xs:text-center xs:block lg:inline-block">
+        <div className="fade-in-2 flex lg:space-x-4 mb-6 xs:text-center xs:block lg:inline-block xs:space-y-4 lg:space-y-0">
         <Dialog>
-            <DialogTrigger className="bg-white rounded-3xl border border-light-gray hover:bg-light-gray-2 transition-all duration-300 ease-in-out mt-2 xs:mx-2
+            <DialogTrigger className="bg-white rounded-3xl border border-light-gray shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ease-in-out mt-2 xs:mx-2
                                         lg:mx-0 xs:px-6 xs:py-4 lg:px-10 lg:py-6 font-playfair-display text-black text-2xl">
                 <Image src="/logo/apple-logo.svg" width={100} height={100} alt="img" className="mb-2" /> iOS
             </DialogTrigger>
@@ -36,7 +36,7 @@ export default function Download() {
 
             <Dialog>
                 <DialogTrigger className="
-                                    bg-white rounded-3xl border border-light-gray hover:bg-light-gray-2 transition-all duration-300 ease-in-out mt-2 xs:mx-2
+                                    bg-white rounded-3xl border border-light-gray shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ease-in-out mt-2 xs:mx-2
                                     lg:mx-0 xs:px-6 xs:py-4 lg:px-10 lg:py-6 font-playfair-display text-black text-2xl">
                     <Image src="/logo/android-logo.svg" width={84} height={84} alt="img" className="mb-2" /> Android
                 </DialogTrigger>
@@ -48,7 +48,7 @@ export default function Download() {
                             <br></br>2. Tap the Menu button (three dots) in the top-right corner.
                             <Image src="/android-guide/android-guide-1.png" width={500} height={500} alt="img" className="mt-2" />
                             <br></br>3. Select "Add to Home screen."
-                            <Image src="/android-guide/android-guide-2.png" width={200} height={200} alt="img" className="border mt-2" />
+                            <Image src="/android-guide/android-guide-2.png" width={300} height={300} alt="img" className="border mt-2" />
                             <br></br>4. Edit the name if you like, then tap "Add."
                             <br></br>5. The app icon will now appear on your home screen.
                         </ScrollArea>
@@ -58,7 +58,7 @@ export default function Download() {
             
             <Dialog>
               <DialogTrigger className="
-                    bg-white rounded-3xl border border-light-gray hover:bg-light-gray-2 transition-all duration-300 ease-in-out mt-2 xs:mx-0
+                    bg-white rounded-3xl border border-light-gray shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ease-in-out mt-2 xs:mx-0
                     lg:mx-0 xs:px-6 xs:py-4 lg:px-10 lg:py-6 font-playfair-display text-black text-2xl">
                 <LaptopMinimal width={98} height={108} className="text-black" /> PC / Mac
               </DialogTrigger>

@@ -1,9 +1,10 @@
 'use client'
 import { useState, useCallback, useEffect } from 'react'
+import Link from 'next/link'
 import { DndContext, closestCenter, PointerSensor, useSensor, useSensors } from '@dnd-kit/core'
 import { arrayMove, SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable'
 import { Button } from "@/components/ui/button"
-import { Plus, PencilLine } from 'lucide-react'
+import { Plus, PencilLine, ListTodo } from 'lucide-react'
 import Note from './Note'
 import AddNoteDialog from './AddNoteDialog'
 import EditNoteDialog from './EditNoteDialog'
@@ -85,13 +86,24 @@ export default function ProjectNotes() {
           <PencilLine className="w-6 h-6 text-dark-gray" />
           <h1 className="text-xl font-playfair-display text-dark-gray">My Notes</h1>
         </div>
-        <Button
-          onClick={() => setIsAddingNote(true)}
-          size="sm"
-          className="gap-2 bg-black hover:bg-gray transition-all duration-300 ease-in-out text-white"
-        >
-          <Plus className="w-4 h-4" /> Add Note
-        </Button>
+        <div className="flex items-center gap-2">
+          <Link href="/tasks">
+            <Button
+              size="sm"
+              className="gap-2 bg-white border hover:bg-light-gray-3 transition-all duration-300 ease-in-out text-black"
+            >
+              <ListTodo className="w-4 h-4" />
+              <p className="hidden lg:block">Tasks</p>
+            </Button>
+          </Link>
+          <Button
+            onClick={() => setIsAddingNote(true)}
+            size="sm"
+            className="gap-2 bg-black hover:bg-gray transition-all duration-300 ease-in-out text-white"
+          >
+            <Plus className="w-4 h-4" /> Add Note
+          </Button>
+        </div>
       </div>
 
       {/* Notes Section */}

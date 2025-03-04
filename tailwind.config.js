@@ -27,6 +27,7 @@ module.exports = {
   			'dark-gray': '#374151',
   			'light-gray': '#9ca3af',
   			'light-gray-2': '#e5e5e5',
+			'light-gray-3': '#f3f4f6',
   			blue: '#2563eb',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
